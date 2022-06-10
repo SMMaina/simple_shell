@@ -8,7 +8,7 @@
 #include<sys/types.h>
 #include<sys/wait.h>
 
-char **get_input(char *line);
+char **get_input(char *lineptr);
 char **get_path(char **env);
 
 #endif
