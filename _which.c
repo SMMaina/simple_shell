@@ -12,7 +12,7 @@ char *_which(char *str, list_t *env)
 	int i = 0;
 
 	path = getenvironment("PATH", env);
-	tokens = c_str_tok(path, ":");
+	tokens = cstrtok(path, ":");
 	free(path);
 
 	i = 0;
@@ -21,7 +21,7 @@ char *_which(char *str, list_t *env)
 		if (tokens[i][0] == '\0')
 			cat = getcwd(cat, 0);
 		else
-			cat = _strdup(tokkens[i]);
+			cat = _strdup(tokens[i]);
 		cat = stringcat(cat, "/");
 		cat = stringcat(cat, str);
 		if (access(cat, F_OK) == 0)

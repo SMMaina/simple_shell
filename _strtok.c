@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
- * tstrlen - returns token's string length
+ * stringlen - returns token's string length
  * @str: token
  * @pos: index pos in user's command
  * @del: delimiter like " "
  * Return: token length
  */
-int tstrlen(char *str, int pos, char del)
+int stringlen(char *str, int pos, char del)
 {
 	int len = 0;
 
@@ -34,7 +34,7 @@ int tsize(char *str, char del)
 		{
 			numdel++;
 		}
-		if ((str[i] == del) && (str[i + 1] == '\0))
+		if ((str[i] == del) && (str[i + 1] == '\0'))
 		{
 			numdel--;
 		}
@@ -60,9 +60,10 @@ char *ignoredel(char *str, char del)
  * @del: delimter
  * @Return: an array of tokems
  */
-char **stringtok(char *str, char *del)
+char **_strtok(char *str, char *del)
 {
-	int buf = 0, p = 0, si = 0, i = 0, length = 0, s = 0, t = 0;
+	int buf = 0, p = 0, si = 0, i = 0, s = 0, t = 0;
+	int length = 0;
 	char **tokens = NULL, dch;
 
 	dch = del[0];
@@ -77,8 +78,8 @@ char **stringtok(char *str, char *del)
 	{
 		if (str[si] != dch)
 		{
-			length = tstrlen(str, si, dch);
-			tokens[p] = malloc(sizeof(char) * (len + 1));
+			length = stringlen(str, si, dch);
+			tokens[p] = malloc(sizeof(char) * (length + 1));
 			if (tokens[p] == NULL)
 				return (NULL);
 			i = 0;

@@ -4,7 +4,7 @@
  * @env: env vars
  * Return: linked list
  */
-list_t *env_linked_lit(char **env)
+list_t *envlinkedlist(char **env)
 {
 	list_t *head;
 	int i = 0;
@@ -12,7 +12,7 @@ list_t *env_linked_lit(char **env)
 	head = NULL;
 	while (env[i] != NULL)
 	{
-		add_endnode(&head, env[i]);
+		addendnode(&head, env[i]);
 		i++;
 	}
 	return (head);

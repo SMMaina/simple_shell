@@ -7,7 +7,7 @@
  */
 size_t get_line(char **str)
 {
-	ssize_t i = 0, size = 0, t = 0; h = 0, n = 0;
+	ssize_t i = 0, size = 0, t = 0, h = 0, n = 0;
 	char buf[1024];
 
 	while (h == 0 && (i = read(STDIN_FILENO, buf, 1024 - 1)))

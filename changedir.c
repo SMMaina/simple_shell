@@ -43,7 +43,7 @@ char *stringcat(char *dest, char *src)
  * @dir: directory path
  * Return: 0 upon success
  */
-int setenvironment(list_t **env, char *name, char *dir)
+int csetenvironment(list_t **env, char *name, char *dir)
 {
 	int ind = 0, i = 0;
 	char *concat;
@@ -75,13 +75,13 @@ void changedironly(list_t *env, char *current)
 	char *home = NULL;
 
 	home = getenvironment("HOME", env);
-	setenvironment(&env, "OLDPWD", current);
+	csetenvironment(&env, "OLDPWD", current);
 	free(current);
 	if (access(home, F_OK) == 0)
 		chdir(home);
 	current = NULL;
 	current = getcwd(current, 0);
-	setenvironment(&env, "PWD", current);
+	csetenvironment(&env, "PWD", current);
 	free(current);
 	free(home);
 }
@@ -100,12 +100,12 @@ int cdexecute(list_t *env, char *current, char *dir, char *str, int n)
 
 	if (access(dir, F_OK) == 0)
 	{
-		setenvironment(&env, "OLDPWD", current);
+		csetenvironment(&env, "OLDPWD", current);
 		free(current);
 		chdir(dir);
 		current = NULL;
 		current = getcwd(current, 0);
-		setenvironment(&env, "PWD", current);
+		csetenvironment(&env, "PWD", current);
 		free(current);
 	}
 	else
@@ -133,13 +133,13 @@ int changedirectory(char **str, list_t *env, int n)
 	{
 		if (str[1][0] == '~')
 		{
-			dir = getenv("HOME", env);
+			dir = getenvironment("HOME", env);
 			dir = stringcat(dir, str[1]);
 		}
 		else if (str[1][0] == '-')
 		{
 			if (str[1][1] == '\0')
-				dir = getenv("OLDPWD", env);
+				dir = getenvironment("OLDPWD", env);
 		}
 		else
 		{

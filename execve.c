@@ -17,23 +17,23 @@ void exitc(char **str, list_t *env)
  * @n: nth user command
  * Return: 0 on success
  */
-int executeve(char **string, list_t *env, int n)
+int _execve(char **string, list_t *env, int n)
 {
 	char *hold;
 	int status = 0, t = 0;
 	pid_t pid;
 
-	if (access(str[0], F_OK) == 0)
+	if (access(string[0], F_OK) == 0)
 	{
-		hold = str[0];
+		hold = string[0];
 		t = 1;
 	}
 	else
-		hold = _which(str[0], env);
+		hold = _which(string[0], env);
 	if (access(hold, X_OK) != 0)
 	{
-		notfound(str[0], n, env);
-		freedoubleptr(str);
+		notfound(string[0], n, env);
+		freedoubleptr(string);
 		return (127);
 	}
 	else
@@ -41,17 +41,17 @@ int executeve(char **string, list_t *env, int n)
 		pid = fork();
 		if (pid == 0)
 		{
-			if (execve(hold, str, NULL) == -1)
+			if (execve(hold, string, NULL) == -1)
 			{
-				notfound(str[0], n, env);
-				exitc(str, env);
+				notfound(string[0], n, env);
+				exitc(string, env);
 			}
 
 		}
 		else
 		{
 			wait(&status);
-			freedoubleptr(str);
+			freedoubleptr(string);
 			if (t == 0)
 				free(hold);
 		}

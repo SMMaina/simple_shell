@@ -27,7 +27,7 @@ int catoi(char *str)
  * @command: bring command to free
  * return: 0 upon success 2 upon failure
  */
-int _exit(char **str, list_t *env, int n, char **command)
+int __exit(char **str, list_t *env, int n, char **command)
 {
 	int evalue = 0;
 
@@ -35,7 +35,7 @@ int _exit(char **str, list_t *env, int n, char **command)
 		evalue = catoi(str[1]);
 	if (evalue == -1)
 	{
-		wrongnumber(str[1], n, env);
+		illegalnumber(str[1], n, env);
 		freedoubleptr(str);
 		return (2);
 	}

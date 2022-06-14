@@ -7,7 +7,7 @@
 void control(int n)
 {
 	(void)n;
-	write(STDOUT_FILENO, "\n#cisfun$ ", 3);
+	write(STDOUT_FILENO, "\n#cisfun$ ", 10);
 }
 
 /**
@@ -23,7 +23,7 @@ int builtin(char **tok, list_t *env, int n, char **command)
 	int i = 0;
 	if (stringcmp(tok[0], "exit") == 0)
 	{
-		i = exitfn(tok, env, n, command);
+		i = __exit(tok, env, n, command);
 	}
 	else if (stringcmp(tok[0], "env") == 0)
 	{
@@ -32,7 +32,7 @@ int builtin(char **tok, list_t *env, int n, char **command)
 	}
 	else if (stringcmp(tok[0], "unsetenv") == 0)
 	{
-		unsetenvironment(&env, tok);
+		_unsetenv(&env, tok);
 		i = 1;
 	}
 	return (i);
@@ -72,7 +72,7 @@ void controld(int n, char *command, list_t *env)
  * @en: environment variabes
  * Return: 0 upon success
  */
-int display(char **en)
+int Prompt(char **en)
 {
 	list_t *env;
 	size_t i = 0, n = 0;
@@ -84,10 +84,10 @@ int display(char **en)
 	{
 		commandno++;
 		if (isatty(STDIN_FILENO))
-			write(STDOUT_FILENO, "#cisfun$ ", 2);
+			write(STDOUT_FILENO, "#cisfun$ ", 9);
 		else
 			noninteractive(env);
-		signal(SIGINT, controlc);
+		signal(SIGINT, control);
 		command = NULL, i = 0;
 		i = get_line(&command);
 		controld(i, command, env);

@@ -5,7 +5,7 @@
  * @src: copy this
  * Return: new dest string
  */
-char stringcpy(char *dest, char *src)
+char *stringcpy(char *dest, char *src)
 {
 	int i, length;
 
