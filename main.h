@@ -38,6 +38,7 @@ int stringcmp(char *s1, char *s2);
 int changedir(char **str, list_t *env, int n);
 int builtin(char **token, list_t *env, int n, char **command);
 void noninteractive(list_t *env);
+void shell(int ac, char **av, char **env);
 char *_which(char *str, list_t *env);
 int __exit(char **str, list_t *env, int n, char **command);
 int _execve(char *argv[], list_t *env, int n);
@@ -56,4 +57,6 @@ void notfound(char *str, int n, list_t *env);
 void cantcdto(char *str, int cn, list_t *env);
 void illegalnumber(char *str, int cn, list_t *env);
 char *inttostring(int n);
+
 #endif
+
