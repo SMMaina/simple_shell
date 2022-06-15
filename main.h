@@ -13,6 +13,8 @@
 #include <dirent.h>
 #include <signal.h>
 
+#define EXITCMD "exit"
+
 /**
  * struct list - linked list for env vars
  * @var: hold string
