@@ -120,28 +120,3 @@ int Prompt(char **en)
 	} while (1);
 	return (exitstat);
 }
-
-/**
- * get_line - stores in a buffer the user's command
- * Return: a null terminated string
- */
-
-char *get_line(void)
-{
-	char *line = NULL;
-	ssize_t bufsize = 0;
-
-	if (get_line(&line, &bufsize, stdin) == -1)
-	{
-		if (feof(stdin))
-		{
-			exit(EXIT_SUCCESS);
-		}
-		else
-		{
-			perror("readline");
-			exit(EXIT_FAILURE);
-		}
-	}
-	return (line);
-}
