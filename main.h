@@ -41,6 +41,8 @@ int changedirectory(char **str, list_t *env, int n);
 void changedironly(list_t *env, char *current);
 int builtin(char **token, list_t *env, int n, char **command);
 void noninteractive(list_t *env);
+int check_for_builtins(char **args, char *line, char **env);
+int builtins_checker(char **args);
 void exit_shell(char **args, char *line, char **env);
 void env_shell(char **args, char *line, char **env);
 char *_which(char *str, list_t *env);
@@ -61,6 +63,17 @@ void notfound(char *str, int n, list_t *env);
 void cantcdto(char *str, int cn, list_t *env);
 void illegalnumber(char *str, int cn, list_t *env);
 char *inttostring(int n);
+
+/**
+ * struct builtins - has builtins and associated functions
+ * @arg: builtin name
+ * @builtin: function
+ */
+typedef struct builtins
+{
+	char *arg;
+	void (*builtin)(char **args, char *line, char **env);
+} builtins_t;
 
 #endif
 
