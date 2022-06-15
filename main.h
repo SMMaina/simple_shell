@@ -26,27 +26,6 @@ typedef struct list
 	struct list *next;
 } list_t;
 
-/**
- * struct builtin - associates a command name with a handler function
- * @name: char
- * @func: function
- * @args: arguments
- */
-struct builtin
-{
-	char *name;
-	void (*func)(char **args);
-};
-
-/**
- * struct builtin builtin - Array of built in commands
- */
-struct builtin builtins[] = {
-	{"help", hsh_help},
-	{"exit", hsh_exit},
-	{"cd", hsh_cd},
-};
-
 int Prompt(char **env);
 void *_realloc(void *ptr, unsigned int oldsize, unsigned int newsize);
 size_t get_line(char **str);
@@ -62,7 +41,6 @@ int changedirectory(char **str, list_t *env, int n);
 void changedironly(list_t *env, char *current);
 int builtin(char **token, list_t *env, int n, char **command);
 void noninteractive(list_t *env);
-void hsh_exit(char **args);
 char *_which(char *str, list_t *env);
 int __exit(char **str, list_t *env, int n, char **command);
 int _execve(char *argv[], list_t *env, int n);
