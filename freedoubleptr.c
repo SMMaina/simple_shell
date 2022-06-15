@@ -2,7 +2,7 @@
 
 /**
  * freedoubleptr - frees the malloced arrays
- * @s: array of strings
+ * @str: array of strings
  */
 void freedoubleptr(char **str)
 {

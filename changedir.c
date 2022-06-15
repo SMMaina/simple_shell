@@ -37,7 +37,7 @@ char *stringcat(char *dest, char *src)
 	return (dest);
 }
 /**
- * setenvironment - sets env by cocatenating two strings first
+ * csetenvironment - sets env by cocatenating two strings first
  * @env: env variable
  * @name: name of env variable
  * @dir: directory path
@@ -92,7 +92,7 @@ void changedironly(list_t *env, char *current)
  * @dir: bring the path to change to
  * @str: bring in 1st arg to wite out error
  * @n: bring in line number
- * return: 0 if success 2 if fail
+ * Return: 0 if success 2 if fail
  */
 int cdexecute(list_t *env, char *current, char *dir, char *str, int n)
 {
@@ -117,7 +117,7 @@ int cdexecute(list_t *env, char *current, char *dir, char *str, int n)
 	return (i);
 }
 /**
- * changedir - change directory
+ * changedirectory - change directory
  * @str: user command
  * @env: env variable
  * @n: nth user command

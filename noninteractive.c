@@ -2,7 +2,7 @@
 /**
  * cignore - custom ignore spaces and newlines
  * @str: env vars
- * Rteurn: new string
+ * Return: new string
  */
 char *cignore(char *str)
 {

@@ -20,12 +20,12 @@ int catoi(char *str)
 	return (n);
 }
 /**
- * _exit - frees the user input and then exit the main program
+ * __exit - frees the user input and then exit the main program
  * @str: user command
  * @env: environment varibale to free
  * @n: bring the nth command of user
  * @command: bring command to free
- * return: 0 upon success 2 upon failure
+ * Return: 0 upon success 2 upon failure
  */
 int __exit(char **str, list_t *env, int n, char **command)
 {

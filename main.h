@@ -56,5 +56,4 @@ void notfound(char *str, int n, list_t *env);
 void cantcdto(char *str, int cn, list_t *env);
 void illegalnumber(char *str, int cn, list_t *env);
 char *inttostring(int n);
-void printalpha(void);
 #endif

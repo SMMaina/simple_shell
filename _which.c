@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * -which - gives cmd by adding it to path dir
+ * _which - gives cmd by adding it to path dir
  *  @str: first cmd typed by user
  *  @env: environment variable
  *  Return: compy of command

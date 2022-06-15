@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * env_linked_list - creates a linked list of env var
+ * envlinkedlist - creates a linked list of env var
  * @env: env vars
  * Return: linked list
  */
