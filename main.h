@@ -29,6 +29,7 @@ typedef struct list
 int Prompt(char **env);
 void *_realloc(void *ptr, unsigned int oldsize, unsigned int newsize);
 size_t get_line(char **str);
+char *_getenv(char *env)
 int stringlen(char *str, int pos, char del);
 char *ignorespace(char *str);
 char **_strtok(char *str, char *del);
@@ -64,16 +65,5 @@ void cantcdto(char *str, int cn, list_t *env);
 void illegalnumber(char *str, int cn, list_t *env);
 char *inttostring(int n);
 
-/**
- * struct builtins - has builtins and associated functions
- * @arg: builtin name
- * @builtin: function
- */
-typedef struct builtins
-{
-	char *arg;
-	void (*builtin)(char **args, char *line, char **env);
-} builtins_t;
 
 #endif
-
