@@ -41,7 +41,7 @@ int changedirectory(char **str, list_t *env, int n);
 void changedironly(list_t *env, char *current);
 int builtin(char **token, list_t *env, int n, char **command);
 void noninteractive(list_t *env);
-void hsh_exit(char **args);
+void exit_shell(char **args, char *line, char **env);
 char *_which(char *str, list_t *env);
 int __exit(char **str, list_t *env, int n, char **command);
 int _execve(char *argv[], list_t *env, int n);
