@@ -107,8 +107,10 @@ int Prompt(char **en)
 			n++;
 		command[n] = '\0';
 		if (command[0] == '\0')
+		{
 			free(ncommand);
 			continue;
+		}
 		token = NULL;
 		token = _strtok(command, " ");
 		if (ncommand != NULL)
