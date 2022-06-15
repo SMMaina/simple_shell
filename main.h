@@ -29,7 +29,6 @@ typedef struct list
 int Prompt(char **env);
 void *_realloc(void *ptr, unsigned int oldsize, unsigned int newsize);
 size_t get_line(char **str);
-char *get_line(void);
 char *_getenv(char *env);
 int stringlen(char *str, int pos, char del);
 char *ignorespace(char *str);
