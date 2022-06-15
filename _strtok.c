@@ -55,10 +55,10 @@ char *ignoredel(char *str, char del)
 	return (str);
 }
 /**
- * stringtok - tokenizes a str and ret a string of tokens
+ * _strtok - tokenizes a str and ret a string of tokens
  * @str: user's input
  * @del: delimter
- * @Return: an array of tokems
+ * Return: an array of tokems
  */
 char **_strtok(char *str, char *del)
 {

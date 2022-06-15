@@ -11,7 +11,7 @@ void exitc(char **str, list_t *env)
 	_exit(0);
 }
 /**
- * executeve - execute command typed into shell
+ * _execve - execute command typed into shell
  * @string: command user typed
  * @env: environmental variable
  * @n: nth user command

@@ -30,7 +30,7 @@ char *cstrdup(char *str, int ex)
 }
 
 /**
- * getenv - finds and returns a copy of requested environment
+ * getenvironment - finds and returns a copy of requested environment
  * @str: string to store in
  * @env: entire env variables
  * Return: copy of requested env variable

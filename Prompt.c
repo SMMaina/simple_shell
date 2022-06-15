@@ -21,6 +21,7 @@ void control(int n)
 int builtin(char **tok, list_t *env, int n, char **command)
 {
 	int i = 0;
+
 	if (stringcmp(tok[0], "exit") == 0)
 	{
 		i = __exit(tok, env, n, command);
@@ -41,7 +42,7 @@ int builtin(char **tok, list_t *env, int n, char **command)
 /**
  * ignorespace - returns a string without spaces in front
  * @string: said string
- * Rteurn: new one
+ * Return: new one
  */
 char *ignorespace(char *string)
 {
@@ -68,7 +69,7 @@ void controld(int n, char *command, list_t *env)
 	}
 }
 /**
- * display - displays repeatedly user's command and executes
+ * Prompt - displays repeatedly user's command and executes
  * @en: environment variabes
  * Return: 0 upon success
  */
@@ -80,8 +81,7 @@ int Prompt(char **en)
 	char *command, *ncommand, **token;
 
 	env = envlinkedlist(en);
-	do
-	{
+	do {
 		commandno++;
 		if (isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, "#cisfun$ ", 9);
@@ -112,7 +112,6 @@ int Prompt(char **en)
 		if (exitstat)
 			continue;
 		exitstat = _execve(token, env, commandno);
-	}
-	while (1);
+	} while (1);
 	return (exitstat);
 }
