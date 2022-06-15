@@ -43,6 +43,7 @@ char **cstrtok(char *str, char *del)
 		toks[p] = malloc(sizeof(char) * (length + 1));
 		if (toks[p] == NULL)
 			return (NULL);
+		i = 0;
 		while ((str[si] != dch) && (str[si] != '\0'))
 		{
 			toks[p][i] = str[si];

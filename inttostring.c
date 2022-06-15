@@ -36,8 +36,8 @@ char *inttostring(int num)
 		return (NULL);
 	if (num < 0)
 	{
-		res[i] /= 10;
-		tens *= 10;
+		res[i] = '-';
+		i++;
 	}
 	for (x = 0; digits > 9 || digits < -9; x++)
 	{
