@@ -31,6 +31,15 @@ int builtin(char **tok, list_t *env, int n, char **command)
 		environment(tok, env);
 		i = 1;
 	}
+	else if (stringcmp(tok[0], "cd") == 0)
+	{
+		i = changedirectory(tok, env, n);
+	}
+	else if (stringcmp(tok[0], "setenv") == 0)
+	{
+		setenvironment(&env, tok);
+		i = 1;
+	}
 	else if (stringcmp(tok[0], "unsetenv") == 0)
 	{
 		_unsetenv(&env, tok);

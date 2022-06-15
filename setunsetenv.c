@@ -68,7 +68,7 @@ int setenvironment(list_t **env, char **str)
 
 	if (str[1] == NULL || str[2] == NULL)
 	{
-		write(STDOUT_FILENO, "tOO FEW ARGUMENTS\n", 18);
+		write(STDOUT_FILENO, "Too few arguments\n", 18);
 		freedoubleptr(str);
 		return (-1);
 	}
