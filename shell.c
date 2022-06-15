@@ -107,20 +107,41 @@ int Prompt(char **en)
 			n++;
 		command[n] = '\0';
 		if (command[0] == '\0')
-		{
 			free(ncommand);
 			continue;
-		}
 		token = NULL;
 		token = _strtok(command, " ");
 		if (ncommand != NULL)
-		{
 			free(ncommand);
-		}
 		exitstat = builtin(token, env, commandno, NULL);
 		if (exitstat)
 			continue;
 		exitstat = _execve(token, env, commandno);
 	} while (1);
 	return (exitstat);
+}
+
+/**
+ * get_line - stores in a buffer the user's command
+ * Return: a null terminated string
+ */
+
+char *get_line(void)
+{
+	char *line = NULL;
+	ssize_t bufsize = 0;
+
+	if (get_line(&line, &bufsize, stdin) == -1)
+	{
+		if (feof(stdin))
+		{
+			exit(EXIT_SUCCESS);
+		}
+		else
+		{
+			perror("readline");
+			exit(EXIT_FAILURE);
+		}
+	}
+	return (line);
 }
